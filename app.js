@@ -16,13 +16,64 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(squares)
 
     //tetrominoes 2d Array
-    const lTetromino = [
-        [1, width+1, width*2+1, 2],
-        [width, width+1,width+2, width*2+2],
-        [1, width+1,width*2+1, width*2],
-        [width, width*2, width*2+1, width*2+2]
-    ]
-    
+  const lTetromino = [
+    [1, width+1, width*2+1, 2],
+    [width, width+1, width+2, width*2+2],
+    [1, width+1, width*2+1, width*2],
+    [width, width*2, width*2+1, width*2+2]
+  ]
+
+  const zTetromino = [
+    [0,width,width+1,width*2+1],
+    [width+1, width+2,width*2,width*2+1],
+    [0,width,width+1,width*2+1],
+    [width+1, width+2,width*2,width*2+1]
+  ]
+
+  const tTetromino = [
+    [1,width,width+1,width+2],
+    [1,width+1,width+2,width*2+1],
+    [width,width+1,width+2,width*2+1],
+    [1,width,width+1,width*2+1]
+  ]
+
+  const oTetromino = [
+    [0,1,width,width+1],
+    [0,1,width,width+1],
+    [0,1,width,width+1],
+    [0,1,width,width+1]
+  ]
+
+  const iTetromino = [
+    [1,width+1,width*2+1,width*3+1],
+    [width,width+1,width+2,width+3],
+    [1,width+1,width*2+1,width*3+1],
+    [width,width+1,width+2,width+3]
+  ]
+
+  const theTetrominoes = [lTetromino, zTetromino, tTetromino, oTetromino, iTetromino]
+
+  let currentPosition = 4
+  let current = theTetrominoes[0][0]
+  
+//   console.log(current)
+
+//draw the first rotation in the first tetromino
+function draw() {
+    //for each item in array add a tetromino that would color the item which is a div inside the element with class name grid
+    current.forEach(index => {
+        
+        //classlist add to add the style of tetrominoes to the squares in the tetrominoes it is in
+        squares[currentPosition + index].classList.add('tetromino')
+    })
+}
+
+draw()
+
+
+
+
+
 })
 
 //INDEX explained:
