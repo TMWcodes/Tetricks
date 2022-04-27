@@ -51,37 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     [width,width+1,width+2,width+3]
   ]
 
-  const theTetrominoes = [lTetromino, zTetromino, tTetromino, oTetromino, iTetromino]
-
-  let currentPosition = 4
-  let currentRotation = 0
-  //randomly select tetrominoes
-
-  let random = Math.floor(Math.random()*theTetrominoes.length)
-//   console.log(random)
-  let current = theTetrominoes[random][currentRotation]
-  
-//   console.log(current)
-
-//draw the first rotation in the first tetromino
-function draw() {
-    //for each item in array add a tetromino that would color the item which is a div inside the element with class name grid
-    current.forEach(index => {
-        
-        //classlist add to add the style of tetrominoes to the squares in the tetrominoes it is in
-        squares[currentPosition + index].classList.add('tetromino')
-    })
-}
-
-draw()
-
-
-
-
-
-})
-
-//INDEX explained:
+  //INDEX explained:
 // width = 10
 // [1, width+1, width*2+1, 2]
 
@@ -98,6 +68,39 @@ draw()
 // [0,0]  [0,1]  [0,2]
 // [1,0]  [1,1]  [1,2]
 // [2,0]  [2,1]  [2,2]
+
+  const theTetrominoes = [lTetromino, zTetromino, tTetromino, oTetromino, iTetromino]
+
+  let currentPosition = 4
+  let currentRotation = 0
+  //randomly select tetrominoes
+
+  let random = Math.floor(Math.random()*theTetrominoes.length)
+//   console.log(random)
+  let current = theTetrominoes[random][currentRotation]
+  
+//   console.log(current)
+
+//draw the first rotation in the first tetromino
+function draw() {
+    //for each item in array add a tetromino that would color the item which is a div inside the element with class name grid
+    current.forEach(index => {
+        //classlist.add to add the style of tetrominoes to the squares in the tetrominoes it is in
+        squares[currentPosition + index].classList.add('tetromino')
+    })
+}
+
+//undraw the tetromino
+
+function undraw() {
+  current.forEach(index => {
+    squares[currentPosition + index].classList.remove('tetromino')
+  })
+}
+
+})
+
+
 
 
 
